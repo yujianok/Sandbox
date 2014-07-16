@@ -39,22 +39,20 @@
                     <label for="testPlans" class="control-label">测试计划</label>
                 </div>
                 <div class="span4">
-                    <select id ="testPlans" class="form-control" data-ng-model="queryTestAction.planName" data-ng-options="m.name for m in plans">
+                    <select id ="testPlans" class="form-control" data-ng-model="queryTestAction.planName"
+                        data-ng-options="m.name for m in plans">
                     </select>
-                </div>
-                <div class="span2">
-                    <button type="button" class="btn btn-success" data-ng-click="addPlan()">添加计划</button>
                 </div>
 
             </div>
-            </br>
+            <br/>
 
             <div class="panel-body">
                 <p>
                     <button type="button" class="btn btn-primary" data-ng-click="query()">查询</button>
                     <button type="button" class="btn btn-inverse" data-ng-click="edit()">修改</button>
-                    <button type="button" class="btn btn-danger" data-ng-click="delete()">删除</button>
                     <button type="button" class="btn btn-success" data-ng-click="add()">新增</button>
+                    <button type="button" class="btn btn-danger" data-ng-click="delete()">删除</button>
                 </p>
             </div>
 
@@ -77,23 +75,23 @@
                     <tbody>
                     <tr data-ng-repeat="action in testActions">
                         <td>
-                            <input type="radio" name="actionIds" data-ng-model="$parent.selectedTestAction" value="{{action.id}}"/>
+                            <input type="radio" name="actionIds" data-ng-model="$parent.selectedTestAction"
+                                value="{{action.id}}"/>
                         </td>
                         <td>{{action.planName}}</td>
                         <td>{{action.seller_nick}}</td>
                         <td>{{action.buyerNick}}</td>
                         <td>{{action.action}}</td>
-                        <td>{{action.createTime}}</td>
-                        <td>{{action.payTime}}</td>
-                        <td>{{action.consignTime}}</td>
-                        <td>{{action.finishTime}}</td>
+                        <td>{{action.create_time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{action.pay_time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{action.consign_time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{action.end_time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                         <td>
-                            <div data-ng-if="action.order!=null">num_iid:{{action.order.numIId}} 总量:{{action.order.num}} 总价:{{action.order.payment}}</br></div>
-                            <div data-ng-if="action.order1!=null">num_iid:{{action.order1.numIId}} 总量:{{action.order1.num}} 总价:{{action.order1.payment}}</br></div>
-                            <div data-ng-if="action.order2!=null">num_iid:{{action.order2.numIId}} 总量:{{action.order2.num}} 总价:{{action.order2.payment}}</br></div>
-                            <div data-ng-if="action.sorder!=null">sku_iid:{{action.sorder.sku_iid}} 总量:{{action.sorder.num}} 总价:{{action.sorder.payment}}</br></div>
-                            <div data-ng-if="action.sorder1!=null">sku_iid:{{action.sorder1.sku_iid}} 总量:{{action.sorder1.num}} 总价:{{action.sorder1.payment}}</br></div>
-                            <div data-ng-if="action.sorder2!=null">sku_iid:{{action.sorder2.sku_iid}} 总量:{{action.sorder2.num}} 总价:{{action.sorder2.payment}}</br></div>
+                            <div data-ng-repeat="order in action.orders">
+                                商品Id:{{order.numIId}}
+                                数量:{{order.num}}
+                                总价:{{order.payment}}<br/>
+                            </div>
                         </td>
                     </tr>
                     </tbody>

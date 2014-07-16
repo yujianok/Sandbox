@@ -28,7 +28,7 @@ angular.merge = function (dist, source) {
 imitateApp.controller("imitateTradeController",["$scope","$restClient","$modal",function($scope,$restClient,$modal){
     query();
 
-    $scope.query =  function(){
+    $scope.query =  function (){
         query();
     }
 
@@ -70,34 +70,14 @@ imitateApp.controller("imitateTradeController",["$scope","$restClient","$modal",
 
     function setActionZh_ch(testAction){
         var action = testAction.action;
-        if(action == 'TRADE_CREATED'){
+        if(action == 'CREATE'){
             testAction.action = '订单创建';
-        }else if(action == 'TRADE_PAID'){
+        }else if(action == 'PAY'){
             testAction.action = '订单付款';
-        }else if(action == 'TRADE_CONSIGNED'){
+        }else if(action == 'CONSIGN'){
             testAction.action = '订单发货';
-        }else if(action == 'TRADE_FINISHED'){
+        }else if(action == 'FINISH'){
             testAction.action = '订单确认';
-        }else if(action == 'TRADE_CLOSED'){
-            testAction.action = '付款以后用户退款成功，交易自动关闭';
-        }else if(action == 'TRADE_CLOSED_BY_TAOBAO'){
-            testAction.action = '付款以前，卖家或买家主动关闭交易';
-        }else if(action == 'REFUND_CREATED'){
-            testAction.action = '买家申请退款';
-        }else if(action == 'REFUND_AGREED'){
-            testAction.action = '卖家同意退款';
-        }else if(action == 'REFUND_CONSIGNED'){
-            testAction.action = '买家已退货';
-        }else if(action == 'REFUND_REFUSED'){
-            testAction.action = '卖家拒绝退款';
-        }else if(action == 'REFUND_CLOSED'){
-            testAction.action = '退款关闭';
-        }else if(action == 'REFUND_SUCCEED'){
-            testAction.action = '退款成功';
-        }else if(action == 'SHIPPING_ARRIVAL_LOCAL'){
-            testAction.action = '快递到达本地';
-        }else if(action == 'SHIPPING_CONFIRM'){
-            testAction.action = '快递签收';
         }
     }
 

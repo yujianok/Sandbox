@@ -6,36 +6,45 @@ imitateApp.controller("editImitateTradeController",
     ["$scope", "$restClient", "$location", "$modalInstance", "selectedId"
     , function ($scope, $restClient, $location, $modalInstance, selectedId) {
 
-        $scope.mytime = new Date();
-        $scope.testAction = {};
+    $scope.mytime = new Date();
+    $scope.testAction = {};
+    $scope.testAction.orders = [];
 
+    if (selectedId != -1) {
+        $restClient.get({user: "sandbox", entity: "TestAction", id: selectedId}, function (data) {
+            $scope.testAction = data;
+        });
+    }
+
+    $scope.editTestAction = function () {
+        if($scope.testAction.action == "" || $scope.testAction.action == undefined){
+            $modalInstance.close();
+            return;
+        }
         if (selectedId != -1) {
-            $restClient.get({user: "sandbox", entity: "TestAction", id: selectedId}, function (data) {
-                $scope.testAction = data;
+            $restClient.update({user: "sandbox", entity: "TestAction", id: selectedId}, $scope.testAction, function () {
+                $modalInstance.close();
+            });
+        } else {
+            $restClient.save({user: "sandbox", entity: "TestAction"}, $scope.testAction, function () {
+                $modalInstance.close();
             });
         }
+    };
 
-        $scope.editTestAction = function () {
-            if($scope.testAction.action == "" || $scope.testAction.action == undefined){
-                $modalInstance.close();
-                return;
-            }
-            if (selectedId != -1) {
-                $restClient.update({user: "sandbox", entity: "TestAction", id: selectedId}, $scope.testAction, function () {
-                    $modalInstance.close();
-                });
-            } else {
-                $restClient.save({user: "sandbox", entity: "TestAction"}, $scope.testAction, function () {
-                    $modalInstance.close();
-                });
-            }
-        };
+    $scope.close = function () {
+        $modalInstance.close();
+    };
 
-        $scope.close = function () {
-            $modalInstance.close();
-        };
+    $scope.addOrder = function() {
+        $scope.testAction.orders.push({});
+    }
 
-    }]);
+    $scope.removeOrder = function() {
+        $scope.testAction.orders.pop({});
+    }
+
+}]);
 
 
 
