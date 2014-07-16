@@ -16,11 +16,8 @@ imitateApp.controller("editImitateTradeController",
         });
     }
 
-    $scope.editTestAction = function () {
-        if($scope.testAction.action == "" || $scope.testAction.action == undefined){
-            $modalInstance.close();
-            return;
-        }
+    $scope.save = function () {
+        parseData($scope.testAction);
         if (selectedId != -1) {
             $restClient.update({user: "sandbox", entity: "TestAction", id: selectedId}, $scope.testAction, function () {
                 $modalInstance.close();
@@ -31,6 +28,21 @@ imitateApp.controller("editImitateTradeController",
             });
         }
     };
+
+    function parseData(action) {
+        if (action.create_time) {
+            action.create_time = new Date(action.create_time);
+        }
+        if (action.pay_time) {
+            action.pay_time = new Date(action.pay_time);
+        }
+        if (action.consign_time) {
+            action.consign_time = new Date(action.consign_time);
+        }
+        if (action.end_time) {
+            action.end_time = new Date(action.end_time);
+        }
+    }
 
     $scope.close = function () {
         $modalInstance.close();

@@ -61,24 +61,8 @@ imitateApp.controller("imitateTradeController",["$scope","$restClient","$modal",
     function query(){
         $scope.selectedTestAction = "";
         $restClient.query(angular.merge({user: "sandbox", entity: "TestAction"}, $scope.queryTestAction), function (data) {
-            angular.forEach(data,function(testAction){
-                setActionZh_ch(testAction);
-            })
             $scope.testActions = data;
         });
-    }
-
-    function setActionZh_ch(testAction){
-        var action = testAction.action;
-        if(action == 'CREATE'){
-            testAction.action = '订单创建';
-        }else if(action == 'PAY'){
-            testAction.action = '订单付款';
-        }else if(action == 'CONSIGN'){
-            testAction.action = '订单发货';
-        }else if(action == 'FINISH'){
-            testAction.action = '订单确认';
-        }
     }
 
     function valSelectedOne() {

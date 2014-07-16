@@ -10,31 +10,20 @@
             <div class="span4">
                 <input id="planName" name="planName" data-ng-model="testAction.planName" type="text" class="form-control">
             </div>
+        </div>
+        <br/>
+        <div class="row-fluid">
             <div class="span2" align="right">
                 <label for="sellerNick" class="label-center">卖家昵称:</label>
             </div>
             <div class="span4">
                 <input id="sellerNick" name="sellerNick" data-ng-model="testAction.seller_nick" type="text" class="form-control">
             </div>
-        </div>
-        <br/>
-        <div class="row-fluid">
             <div class="span2" align="right">
                 <label for="buyerNick" class="label-center">买家昵称:</label>
             </div>
             <div class="span4">
                 <input id="buyerNick" name="buyerNick" data-ng-model="testAction.buyerNick" type="text" class="form-control">
-            </div>
-            <div class="span2" align="right">
-                <label for="action" class="label-center">事件:</label>
-            </div>
-            <div class="span4">
-                <select id="action" data-ng-model="testAction.action">
-                    <option value="CREATE">订单创建</option>
-                    <option value="PAY">订单付款</option>
-                    <option value="CONSIGN">订单发货</option>
-                    <option value="FINISH">订单确认</option>
-                </select>
             </div>
         </div>
         <br/>
@@ -134,7 +123,7 @@
 
     <div class="panel-body" align="center">
         <p>
-            <button type="submit" class="btn btn-primary" data-ng-click="editTestAction()">保存</button>
+            <button type="submit" class="btn btn-primary" data-ng-click="save()">保存</button>
             <button type="button" class="btn btn-default" data-ng-click="close()">关闭</button>
         </p>
     </div>
