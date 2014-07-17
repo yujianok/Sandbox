@@ -5,41 +5,41 @@ sandboxApp.controller("editTestPlanController",
     ["$scope", "$restClient", "$location", "$modalInstance", "selectedId"
     , function ($scope, $restClient, $location, $modalInstance, selectedId) {
 
-    $scope.testAction = {};
-    $scope.testAction.orders = [];
-    $scope.testAction.status = true;
+    $scope.testPlan = {};
+    $scope.testPlan.trades = [];
+    $scope.testPlan.status = true;
 
     var oldStatus = false;
 
     if (selectedId != -1) {
-        $restClient.get({user: "sandbox", entity: "TestAction", id: selectedId}, function (data) {
-            $scope.testAction = data;
-            oldStatus = $scope.testAction.status;
+        $restClient.get({user: esIndex, entity: testPlanName, id: selectedId}, function (data) {
+            $scope.testPlan = data;
+            oldStatus = $scope.testPlan.status;
         });
     }
 
     $scope.save = function () {
-        parseData($scope.testAction);
+        parseData($scope.testPlan);
         if (selectedId != -1) {
-            $restClient.update({user: "sandbox", entity: "TestAction", id: selectedId}, $scope.testAction, function () {
+            $restClient.update({user: esIndex, entity: testPlanName, id: selectedId}, $scope.testPlan, function () {
                 $modalInstance.close();
             });
         } else {
-            $restClient.save({user: "sandbox", entity: "TestAction"}, $scope.testAction, function () {
+            $restClient.save({user: esIndex, entity: testPlanName}, $scope.testPlan, function () {
                 $modalInstance.close();
             });
         }
     };
 
-    function parseData(action) {
-        if (typeof(action.status ) !== 'boolean') {
-            action.status = action.status === 'true'
+    function parseData(plan) {
+        if (typeof(plan.status ) !== 'boolean') {
+            plan.status = plan.status === 'true'
         }
-        if (action.status !== oldStatus && action.status) {
-            action.startTime = new Date();
+        if (plan.status !== oldStatus && plan.status) {
+            plan.startTime = new Date().getTime();
         }
-        if (action.status === false) {
-            action.startTime = null;
+        if (plan.status === false) {
+            plan.startTime = null;
         }
     }
 

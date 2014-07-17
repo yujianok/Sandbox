@@ -8,19 +8,20 @@
                 <label for="planName" class="label-center">测试计划:</label>
             </div>
             <div class="span4">
-                <input id="planName" name="planName" data-ng-model="testAction.planName" type="text" class="form-control">
+                <input id="planName" name="planName" data-ng-model="testPlan.name" type="text" class="form-control">
             </div>
             <div class="span2" align="right">
                 <label for="status" class="label-center">是否开启:</label>
             </div>
             <div class="span4">
-                <select id="status" data-ng-model="testAction.status" class="form-control" style="width: 206">
+                <select id="status" data-ng-model="testPlan.status" class="form-control" style="width: 206">
                     <option value="true">开启</option>
                     <option value="false">关闭</option>
                 </select>
             </div>
         </div>
         <br/>
+        <!--
         <div class="row-fluid">
             <div class="span2" align="right">
                 <label for="sellerNick" class="label-center">卖家昵称:</label>
@@ -116,6 +117,7 @@
 
         <button type="button" class="btn btn-default" data-ng-click="addOrder()">新增订单</button>
         <button type="button" class="btn btn-default" data-ng-click="removeOrder()">删除订单</button>
+        -->
     </form>
 
     <div class="panel-body" align="center">

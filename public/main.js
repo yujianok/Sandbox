@@ -22,3 +22,5 @@ angular.merge = function (dist, source) {
 }
 
 var esIndex = 'sandbox';
+
+var testPlanName = 'TestPlan';

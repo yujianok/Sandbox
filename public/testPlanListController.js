@@ -25,7 +25,7 @@ sandboxApp.controller("testPlanListController",["$scope","$restClient","$modal",
         var isSelectedOne = valSelectedOne();
         if (isSelectedOne == "success") {
             if (confirm("确认要删除吗？")) {
-                $restClient.remove({user: "sandbox", entity: "TestAction", id: $scope.selectedTestAction}, function (data) {
+                $restClient.remove({user: esIndex, entity: testPlanName, id: $scope.selectedTestAction}, function (data) {
                     query();
                 });
             }
@@ -36,7 +36,7 @@ sandboxApp.controller("testPlanListController",["$scope","$restClient","$modal",
 
     function query(){
         $scope.selectedTestAction = "";
-        $restClient.query(angular.merge({user: "sandbox", entity: "TestAction"}, $scope.queryTestAction), function (data) {
+        $restClient.query(angular.merge({user: esIndex, entity: testPlanName}, $scope.queryTestAction), function (data) {
             $scope.testActions = data;
         });
     }
