@@ -1,18 +1,20 @@
 /**
  * Created by darcy on 13-12-20.
  */
-
-imitateApp.controller("editImitateTradeController",
+sandboxApp.controller("editTestPlanController",
     ["$scope", "$restClient", "$location", "$modalInstance", "selectedId"
     , function ($scope, $restClient, $location, $modalInstance, selectedId) {
 
-    $scope.mytime = new Date();
     $scope.testAction = {};
     $scope.testAction.orders = [];
+    $scope.testAction.status = true;
+
+    var oldStatus = false;
 
     if (selectedId != -1) {
         $restClient.get({user: "sandbox", entity: "TestAction", id: selectedId}, function (data) {
             $scope.testAction = data;
+            oldStatus = $scope.testAction.status;
         });
     }
 
@@ -30,17 +32,14 @@ imitateApp.controller("editImitateTradeController",
     };
 
     function parseData(action) {
-        if (action.create_time) {
-            action.create_time = new Date(action.create_time);
+        if (typeof(action.status ) !== 'boolean') {
+            action.status = action.status === 'true'
         }
-        if (action.pay_time) {
-            action.pay_time = new Date(action.pay_time);
+        if (action.status !== oldStatus && action.status) {
+            action.startTime = new Date();
         }
-        if (action.consign_time) {
-            action.consign_time = new Date(action.consign_time);
-        }
-        if (action.end_time) {
-            action.end_time = new Date(action.end_time);
+        if (action.status === false) {
+            action.startTime = null;
         }
     }
 
