@@ -66,13 +66,8 @@
                         <th>测试计划</th>
                         <th>开启时间</th>
                         <th>状态</th>
-                        <th>卖家昵称</th>
-                        <th>买家昵称</th>
-                        <th>下单延迟</th>
-                        <th>付款延迟</th>
-                        <th>发货延迟</th>
-                        <th>结束延迟</th>
-                        <th>商品信息</th>
+                        <th>交易列表</th>
+                        <th>动作列表</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -81,20 +76,21 @@
                             <input type="radio" name="actionIds" data-ng-model="$parent.selectedTestAction"
                                 value="{{action.id}}"/>
                         </td>
-                        <td>{{action.planName}}</td>
+                        <td>{{action.name}}</td>
                         <td>{{action.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
                         <td>{{action.status}}</td>
-                        <td>{{action.seller_nick}}</td>
-                        <td>{{action.buyerNick}}</td>
-                        <td>{{action.createDelay}}{{action.createDelayUnit}}</td>
-                        <td>{{action.payDelay}}{{action.payDelayUnit}}</td>
-                        <td>{{action.consignDelay}}{{action.consignDelayUnit}}</td>
-                        <td>{{action.endDelay}}{{action.endDelayUnit}}</td>
                         <td>
-                            <div data-ng-repeat="order in action.orders">
-                                商品Id:{{order.numIId}}
-                                数量:{{order.num}}
-                                总价:{{order.payment}}<br/>
+                            <div data-ng-repeat="trade in action.trades">
+                                订单id: {{trade.tid}}; 卖家昵称: {{trade.sellerNick}}; 买家昵称: {{trade.buyerNick}}
+                                <div data-ng-repeat="order in trade.orders">
+                                    商品id: {{order.numIId}}; 数量: {{order.num}}
+                                </div>
+                                -----------------------------------------------
+                            </div>
+                        </td>
+                        <td>
+                            <div data-ng-repeat="action in action.actions">
+                                订单id: {{action.tid}}; 动作: {{action.action}}; 延迟: {{action.delay}}{{action.delayUnit}}
                             </div>
                         </td>
                     </tr>
