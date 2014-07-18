@@ -43,6 +43,9 @@ sandboxApp.controller("editTestPlanController",
     if (selectedId != -1) {
         $restClient.get({user: esIndex, entity: testPlanName, id: selectedId}, function (data) {
             $scope.testPlan = data;
+            $scope.testPlan.actions.forEach(function(action) {
+                $scope.tids.push(action.tid);
+            });
             oldStatus = $scope.testPlan.status;
         });
     }
