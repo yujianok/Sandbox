@@ -8,7 +8,7 @@ sandboxApp.controller("editTestPlanController",
     $scope.testPlan = {};
     $scope.testPlan.trades = [];
     $scope.testPlan.actions = [];
-    $scope.testPlan.status = true;
+    $scope.testPlan.status = false;
 
     $scope.tids = [];
 
@@ -38,15 +38,12 @@ sandboxApp.controller("editTestPlanController",
 
     });
 
-    var oldStatus = false;
-
     if (selectedId != -1) {
         $restClient.get({user: esIndex, entity: testPlanName, id: selectedId}, function (data) {
             $scope.testPlan = data;
             $scope.testPlan.actions.forEach(function(action) {
                 $scope.tids.push(action.tid);
             });
-            oldStatus = $scope.testPlan.status;
         });
     }
 
@@ -62,18 +59,6 @@ sandboxApp.controller("editTestPlanController",
             });
         }
     };
-
-    function parseData(plan) {
-        if (typeof(plan.status ) !== 'boolean') {
-            plan.status = plan.status === 'true'
-        }
-        if (plan.status !== oldStatus && plan.status) {
-            plan.startTime = new Date().getTime();
-        }
-        if (plan.status === false) {
-            plan.startTime = null;
-        }
-    }
 
     $scope.close = function () {
         $modalInstance.close();
