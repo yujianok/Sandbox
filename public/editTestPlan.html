@@ -5,22 +5,116 @@
     <form name="testActionForm">
         <div class="row-fluid">
             <div class="span2" align="right">
-                <label for="planName" class="label-center">测试计划:</label>
+                <label class="label-center">测试计划:</label>
             </div>
             <div class="span4">
-                <input id="planName" name="planName" data-ng-model="testPlan.name" type="text" class="form-control">
+                <input data-ng-model="testPlan.name" type="text" class="form-control">
             </div>
             <div class="span2" align="right">
-                <label for="status" class="label-center">是否开启:</label>
+                <label class="label-center">是否开启:</label>
             </div>
             <div class="span4">
-                <select id="status" data-ng-model="testPlan.status" class="form-control" style="width: 206">
+                <select data-ng-model="testPlan.status" class="form-control" style="width: 206">
                     <option value="true">开启</option>
                     <option value="false">关闭</option>
                 </select>
             </div>
         </div>
         <br/>
+        ================================<br/>
+        <button type="button" class="btn" data-ng-click="addTrade()">新增交易</button>
+        <button type="button" class="btn" data-ng-click="removeTrade()">删除交易</button>
+        <br/>
+        <div data-ng-repeat="trade in testPlan.trades">
+            <div class="row-fluid">
+                <div class="span2" align="right">
+                    <label class="label-center">订单编号:</label>
+                </div>
+                <div class="span4">
+                    <input data-ng-model="trade.tid" type="text" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2" align="right">
+                    <label class="label-center">卖家昵称:</label>
+                </div>
+                <div class="span4">
+                    <select data-ng-model="trade.sellerNick" class="form-control">
+                        <option data-ng-repeat="nick in userData.nicks" value="{{nick}}">{{nick}}</option>
+                    </select>
+                </div>
+                <div class="span2" align="right">
+                    <label class="label-center">买家昵称:</label>
+                </div>
+                <div class="span4">
+                    <select data-ng-model="trade.buyerNick" class="form-control">
+                        <option data-ng-repeat="customer in userData[trade.sellerNick].customers" value="{{customer.nick}}">
+                            {{customer.nick}}</option>
+                    </select>
+                </div>
+                <div data-ng-repeat="order in trade.orders">
+                    <div class="row-fluid">
+                        <div class="span2" align="right">
+                            <label class="label-center">商品</label>
+                        </div>
+                        <div class="span4">
+                            <select data-ng-model="order.numIId" class="form-control">
+                                <option data-ng-repeat="item in userData[trade.sellerNick].items" value="{{item.id}}">
+                                    {{item.title}}</option>
+                            </select>
+                        </div>
+                        <div class="span2" align="right">
+                            <label class="label-center">数量:</label>
+                        </div>
+                        <div class="span4">
+                            <input style="width: 140px" data-ng-model="order.num" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                    <div class="span4">
+                        <button type="button" class="btn btn-small" data-ng-click="addOrder(trade.tid)">新增订单</button>
+                        <button type="button" class="btn btn-small" data-ng-click="removeOrder(trade.tid)">删除订单</button>
+                    </div>
+             </div>
+        </div>
+        ================================<br/>
+        <button type="button" class="btn" data-ng-click="addAction()">新增动作</button>
+        <button type="button" class="btn" data-ng-click="removeAction()">删除动作</button>
+        <div data-ng-repeat="action in testPlan.actions">
+            <div class="row-fluid">
+                <div class="span2" align="right">
+                    <label class="label-center">订单编号:</label>
+                </div>
+                <div class="span2">
+                    <select data-ng-model="action.tid" class="form-control" style="width: 140px">
+                        <option data-ng-repeat="tid in tids" value="{{tid}}">{{tid}}</option>
+                    </select>
+                </div>
+                <div class="span1" align="right">
+                    <label class="label-center">动作:</label>
+                </div>
+                <div class="span2">
+                    <select style="width: 140px" data-ng-model="action.action" class="form-control">
+                        <option value="create">下单</option>
+                        <option value="pay">付款</option>
+                        <option value="consign">发货</option>
+                        <option value="end">确认</option>
+                    </select>
+                </div>
+                <div class="span1" align="right">
+                    <label class="label-center">延迟:</label>
+                </div>
+                <div class="span3">
+                    <input style="width: 80px" data-ng-model="action.delay" type="text" class="form-control">
+                    <select data-ng-model="action.delayUnit" class="form-control" style="width: 50px">
+                        <option value="s">秒</option>
+                        <option value="m">分</option>
+                        <option value="h">时</option>
+                        <option value="d">天</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <!--
         <div class="row-fluid">
             <div class="span2" align="right">

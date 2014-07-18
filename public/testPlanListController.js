@@ -1,10 +1,12 @@
 /**
  * Created by darcy on 14-7-9.
  */
-sandboxApp.controller("testPlanListController",["$scope","$restClient","$modal",function($scope,$restClient,$modal){
+sandboxApp.controller("testPlanListController",
+    ["$scope","$restClient","$modal",function($scope,$restClient,$modal){
+
     query();
 
-    $scope.query =  function (){
+    $scope.query = function (){
         query();
     }
 
@@ -44,7 +46,7 @@ sandboxApp.controller("testPlanListController",["$scope","$restClient","$modal",
     function valSelectedOne() {
         if ($scope.selectedTestAction == ""
             || $scope.selectedTestAction == undefined) {
-            return "请选择一个事件";
+            return "请选择一个计划";
         } else {
             return "success";
         }
