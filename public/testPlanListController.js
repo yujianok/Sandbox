@@ -36,15 +36,13 @@ sandboxApp.controller("testPlanListController",
         }
     }
 
-    $scope.startStop = function(actionId) {
+    $scope.start = function(actionId) {
         $scope.testActions.forEach(function(action) {
             if(actionId === action.id) {
-                if(action.status) {
-                    action.startTime = null;
-                } else {
+                if(!action.status) {
                     action.startTime = new Date().getTime();
+                    action.status = !action.status;
                 }
-                action.status = !action.status;
                 $restClient.update({user: esIndex, entity: testPlanName, id: action.id}, action);
             }
         });

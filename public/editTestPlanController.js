@@ -48,7 +48,6 @@ sandboxApp.controller("editTestPlanController",
     }
 
     $scope.save = function () {
-        parseData($scope.testPlan);
         if (selectedId != -1) {
             $restClient.update({user: esIndex, entity: testPlanName, id: selectedId}, $scope.testPlan, function () {
                 $modalInstance.close();

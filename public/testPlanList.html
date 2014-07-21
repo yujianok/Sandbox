@@ -79,9 +79,13 @@
                         <td>{{action.name}}</td>
                         <td>{{action.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
                         <td>
-                            <button type="button" class="btn btn-inverse" data-ng-click="startStop(action.id)">
-                                {{action.status}}
+                            <button data-ng-if="!action.status" type="button" class="btn btn-success"
+                                data-ng-click="start(action.id)">
+                                开启
                             </button>
+                            <div data-ng-if="action.status">
+                                执行中
+                            </div>
                         </td>
                         <td>
                             <div data-ng-repeat="trade in action.trades">
