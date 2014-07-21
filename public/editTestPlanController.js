@@ -48,6 +48,7 @@ sandboxApp.controller("editTestPlanController",
     }
 
     $scope.save = function () {
+        parseData($scope.testPlan);
         if (selectedId != -1) {
             $restClient.update({user: esIndex, entity: testPlanName, id: selectedId}, $scope.testPlan, function () {
                 $modalInstance.close();
@@ -59,6 +60,31 @@ sandboxApp.controller("editTestPlanController",
         }
     };
 
+    function parseData(plan) {
+        plan.trades.forEach(function(trade) {
+            var nick = trade.buyerNick;
+            customers.forEach(function(customer) {
+                if (customer.nick === nick) {
+                    trade.customer = customer;
+                }
+            });
+            trade.orders.forEach(function(order) {
+                var numIId = order.numIId;
+                numIId = parseInt(numIId);
+                order.numIId = numIId;
+                items.forEach(function(item) {
+                    if (item.id === numIId) {
+                        order.price = item.price;
+                        order.title = item.title;
+                    }
+                });
+            });
+        });
+        plan.actions.forEach(function(action) {
+            action.tid = parseInt(action.tid);
+        });
+    }
+
     $scope.close = function () {
         $modalInstance.close();
     };
@@ -66,7 +92,7 @@ sandboxApp.controller("editTestPlanController",
     $scope.addTrade = function() {
         var trade = {};
         trade.orders = [];
-        trade.tid = '订单' + ($scope.testPlan.trades.length + 1);
+        trade.tid = new Date().getTime();
         $scope.testPlan.trades.push(trade);
         $scope.tids = [];
         $scope.testPlan.trades.forEach(function(trade) {
