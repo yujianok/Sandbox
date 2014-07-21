@@ -83,6 +83,7 @@ sandboxApp.controller("editTestPlanController",
         });
         plan.actions.forEach(function(action) {
             action.tid = parseInt(action.tid);
+            action.delay = parseInt(action.delay);
         });
     }
 
