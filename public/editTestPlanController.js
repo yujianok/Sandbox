@@ -68,6 +68,11 @@ sandboxApp.controller("editTestPlanController",
                     trade.customer = customer;
                 }
             });
+            users.forEach(function(user) {
+                if (user.nick === trade.sellerNick) {
+                    trade.session = user.session;
+                }
+            });
             trade.orders.forEach(function(order) {
                 var numIId = order.numIId;
                 numIId = parseInt(numIId);
