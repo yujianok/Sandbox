@@ -68,6 +68,7 @@
                         <th>状态</th>
                         <th>交易列表</th>
                         <th>动作列表</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,13 +80,7 @@
                         <td>{{action.name}}</td>
                         <td>{{action.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
                         <td>
-                            <button data-ng-if="!action.status" type="button" class="btn btn-success"
-                                data-ng-click="start(action.id)">
-                                开启
-                            </button>
-                            <div data-ng-if="action.status">
-                                执行中
-                            </div>
+                            {{action.status}}
                         </td>
                         <td>
                             <div data-ng-repeat="trade in action.trades">
@@ -100,6 +95,12 @@
                             <div data-ng-repeat="action in action.actions">
                                 订单id: {{action.tid}}; 动作: {{action.action}}; 延迟: {{action.delay}}{{action.delayUnit}}
                             </div>
+                        </td>
+                        <td>
+                            <button data-ng-disabled="action.status" type="button" class="btn btn-success"
+                                    data-ng-click="start(action.id)">
+                                开启
+                            </button>
                         </td>
                     </tr>
                     </tbody>

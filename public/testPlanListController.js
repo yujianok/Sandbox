@@ -16,6 +16,16 @@ sandboxApp.controller("testPlanListController",
 
     $scope.edit = function () {
         var isSelectedOne = valSelectedOne();
+        var status;
+        $scope.testActions.forEach(function(action) {
+            if (action.id === parseInt($scope.selectedTestAction)) {
+                status = action.status;
+            }
+        });
+        if (status) {
+            alert('无法修改运行中测试');
+            return;
+        }
         if (isSelectedOne == "success") {
             openDialog($scope.selectedTestAction);
         } else {
