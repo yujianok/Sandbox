@@ -1,5 +1,5 @@
 var users = [
-    {'id': 54520057, 'nick': 'jin_xingxing', 'session': '6200612ffbe9aab17ff9ZZ79024fb434051f9f8d1099f0354520057'}
+    {'id': 54520057, 'nick': 'jin_xingxing'}
 ];
 
 var items = [

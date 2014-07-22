@@ -70,7 +70,7 @@ sandboxApp.controller("editTestPlanController",
             });
             users.forEach(function(user) {
                 if (user.nick === trade.sellerNick) {
-                    trade.session = user.session;
+                    trade.userId = user.id;
                 }
             });
             trade.orders.forEach(function(order) {
