@@ -15,4 +15,4 @@ var server = app.listen(config.server.port, function() {
 	console.log('Listening on port %d', server.address().port);
 });
 
-tradeMockJob.doJob;
+tradeMockJob.initTestPlan();
