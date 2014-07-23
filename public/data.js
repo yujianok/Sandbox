@@ -27,8 +27,14 @@ var customers = [
         'district': '越秀区', 'address': '中山五路219号中旅商业城1510室(510030)', 'userId': 54520057},
     {'nick': 'fengdan01989', 'realName': '冯丹', 'mobile': '13500388584', 'state': '重庆', 'city': '重庆市',
         'district': '渝中区', 'address': '重庆市渝中区朝天门时代天骄10-10(400020)', 'userId': 54520057},
-    {'nick': 'tb_gemini', 'realName': '徐小茗', 'mobile': '15900922737', 'state': '上海', 'city': '上海市',
-        'district': '杨浦区', 'address': '国定路777号上海财经大学(200433)', 'userId': 54520057},
     {'nick': '2005蛋炒饭', 'realName': '王继刚', 'mobile': '13408015797', 'state': '四川省', 'city': '成都市',
-        'district': '大邑县', 'address': '安仁镇金民小区11幢16号(611331)', 'userId': 54520057}
+        'district': '大邑县', 'address': '安仁镇金民小区11幢16号(611331)', 'userId': 54520057},
+    {'nick': 'zhaochuntian8', 'realName': '赵春田', 'mobile': '13933658266', 'state': '河北省', 'city': '秦皇岛市',
+        'district': '北戴河区', 'address': '北二区27栋2单元102(066100)', 'userId': 54520057},
+    {'nick': 'ronger58401', 'realName': '杨镇榕', 'mobile': '15078858401', 'state': '广西壮族自治区', 'city': '南宁市',
+        'district': '兴宁区', 'address': '南宁市杭州路3号广西南宁天湖酒店14楼1401房(530000)', 'userId': 54520057},
+    {'nick': 'yesi9999', 'realName': '曹燕秋', 'mobile': '15026583923', 'state': '上海', 'city': '上海市',
+        'district': '南汇区', 'address': '祝桥镇空港工业区金闻路29号', 'userId': 54520057},
+    {'nick': 'dan806132461', 'realName': '胡丹', 'mobile': '15170935771', 'state': '江西省', 'city': '九江市',
+        'district': '浔阳区', 'address': '江西省九江市青年路九十六号江西财经职业学院会计一系会计十二班胡丹(332000)', 'userId': 54520057}
 ];
