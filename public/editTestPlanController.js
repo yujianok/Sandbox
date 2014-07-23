@@ -78,6 +78,9 @@ sandboxApp.controller("editTestPlanController",
                 numIId = parseInt(numIId);
                 order.numIId = numIId;
                 order.num = parseInt(order.num);
+                if (order.payment) {
+                    order.payment = parseFloat(order.payment);
+                }
                 items.forEach(function(item) {
                     if (item.id === numIId) {
                         order.price = item.price;

@@ -86,7 +86,8 @@
                             <div data-ng-repeat="trade in action.trades">
                                 订单id: {{trade.tid}}; 卖家昵称: {{trade.sellerNick}}; 买家昵称: {{trade.buyerNick}}
                                 <div data-ng-repeat="order in trade.orders">
-                                    商品id: {{order.numIId}}; 数量: {{order.num}}
+                                    商品id: {{order.numIId}}; 数量: {{order.num}};
+                                    <span data-ng-if="order.payment">改价: {{order.payment}}</span>
                                 </div>
                                 -----------------------------------------------
                             </div>

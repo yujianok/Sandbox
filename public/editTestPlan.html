@@ -47,7 +47,7 @@
                         <div class="span2" align="right">
                             <label class="label-center">商品</label>
                         </div>
-                        <div class="span4">
+                        <div class="span2">
                             <select data-ng-model="order.numIId" class="form-control">
                                 <option data-ng-repeat="item in userData[trade.sellerNick].items" value="{{item.id}}">
                                     {{item.title}}</option>
@@ -56,8 +56,14 @@
                         <div class="span2" align="right">
                             <label class="label-center">数量:</label>
                         </div>
-                        <div class="span4">
+                        <div class="span2">
                             <input style="width: 140px" data-ng-model="order.num" type="text" class="form-control">
+                        </div>
+                        <div class="span1" align="right">
+                            <label class="label-center">总价:</label>
+                        </div>
+                        <div class="span2">
+                            <input style="width: 140px" data-ng-model="order.payment" type="text" class="form-control">
                         </div>
                     </div>
                 </div>
