@@ -38,8 +38,10 @@
                 </div>
                 <div class="span4">
                     <select data-ng-model="trade.buyerNick" class="form-control">
-                        <option data-ng-repeat="customer in userData[trade.sellerNick].customers" value="{{customer.nick}}">
-                            {{customer.nick}}</option>
+                        <option data-ng-repeat="customer in userData[trade.sellerNick].customers"
+                            value="{{customer.nick}}" data-ng-selected="customer.nick === trade.buyerNick">
+                            {{customer.nick}}
+                        </option>
                     </select>
                 </div>
                 <div data-ng-repeat="order in trade.orders">
@@ -49,8 +51,10 @@
                         </div>
                         <div class="span2">
                             <select data-ng-model="order.numIId" class="form-control">
-                                <option data-ng-repeat="item in userData[trade.sellerNick].items" value="{{item.id}}">
-                                    {{item.title}}</option>
+                                <option data-ng-repeat="item in userData[trade.sellerNick].items" value="{{item.id}}"
+                                data-ng-selected="item.id === order.numIId">
+                                    {{item.title}}
+                                </option>
                             </select>
                         </div>
                         <div class="span2" align="right">
