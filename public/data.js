@@ -18,5 +18,17 @@ var customers = [
     {'nick': '东方馨月', 'realName': '郑平', 'mobile': '13842777077', 'state': '辽宁省', 'city': '盘锦市',
         'district': '双台子区', 'address': '学府园2号楼5单元401室(124000)', 'userId': 54520057},
     {'nick': 'xuting851010', 'realName': '徐婷', 'mobile': '15055986190', 'state': '安徽省', 'city': '黄山市',
-                    'district': '休宁县', 'address': '万安镇轮车村蓼山组(245461)', 'userId': 54520057}
+        'district': '休宁县', 'address': '万安镇轮车村蓼山组(245461)', 'userId': 54520057},
+    {'nick': '虫儿蜕变', 'realName': '戴媛', 'mobile': '13636111696', 'state': '湖北省', 'city': '黄冈市',
+        'district': '麻城市', 'address': '华英学校斜对面学英超市(438300)', 'userId': 54520057},
+    {'nick': '泡沫之夏2021', 'realName': '杨层', 'mobile': '13271625713', 'state': '安徽省', 'city': '亳州市',
+        'district': '其它区', 'address': '鹿邑县邮政局(477200)', 'userId': 54520057},
+    {'nick': 'roger_melody', 'realName': '谢彦', 'mobile': '13450422943', 'state': '广东省', 'city': '广州市',
+        'district': '越秀区', 'address': '中山五路219号中旅商业城1510室(510030)', 'userId': 54520057},
+    {'nick': 'fengdan01989', 'realName': '冯丹', 'mobile': '13500388584', 'state': '重庆', 'city': '重庆市',
+        'district': '渝中区', 'address': '重庆市渝中区朝天门时代天骄10-10(400020)', 'userId': 54520057},
+    {'nick': 'tb_gemini', 'realName': '徐小茗', 'mobile': '15900922737', 'state': '上海', 'city': '上海市',
+        'district': '杨浦区', 'address': '国定路777号上海财经大学(200433)', 'userId': 54520057},
+    {'nick': '2005蛋炒饭', 'realName': '王继刚', 'mobile': '13408015797', 'state': '四川省', 'city': '成都市',
+        'district': '大邑县', 'address': '安仁镇金民小区11幢16号(611331)', 'userId': 54520057}
 ];
