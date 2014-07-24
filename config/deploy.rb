@@ -11,7 +11,7 @@ set :deploy_via, :copy
 namespace :deploy do
 
    task :restart, :roles => :all do
-       sh ~/Sandbox/reboot.sh
+       run "sh ~/Sandbox/reboot.sh"
    end
 
 end
