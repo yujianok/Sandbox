@@ -62,7 +62,7 @@ sandboxApp.controller("testPlanListController",
 
     $scope.deleteSendData = function(userId) {
         if  (userId) {
-            $restClient.remove({user: esIndex, entity: 'SendData', id: 0}, function (error) {
+            $restClient.remove({user: esIndex, entity: 'SendData', id: userId}, function (error) {
                 if (error) {
                     alert('删除失败');
                 } else {
