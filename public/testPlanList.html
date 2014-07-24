@@ -58,6 +58,16 @@
                 </p>
             </div>
 
+            <div class="panel-body">
+                <select data-ng-model="deleteDataUserId">
+                    <option></option>
+                    <option data-ng-repeat="user in users" value="{{user.id}}">{{user.nick}}</option>
+                </select>
+                <button type="button" class="btn btn-danger" data-ng-click="deleteSendData(deleteDataUserId)">
+                    清除发送记录
+                </button>
+            </div>
+
             <div class="panel panel-default" style="overflow: auto">
                 <table class="table table-bordered table-hover display-inline sortable" id="testActionList">
                     <thead>

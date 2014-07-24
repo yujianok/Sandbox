@@ -14,6 +14,8 @@ sandboxApp.controller("testPlanListController",
         openDialog(-1);
     }
 
+    $scope.users = users;
+
     $scope.edit = function () {
         var isSelectedOne = valSelectedOne();
         var status;
@@ -56,6 +58,20 @@ sandboxApp.controller("testPlanListController",
                 $restClient.update({user: esIndex, entity: testPlanName, id: action.id}, action);
             }
         });
+    }
+
+    $scope.deleteSendData = function(userId) {
+        if  (userId) {
+            $restClient.remove({user: esIndex, entity: 'SendData', id: 0}, function (error) {
+                if (error) {
+                    alert('删除失败');
+                } else {
+                    alert('删除成功');
+                }
+            });
+        } else {
+            alert("请选择用户");
+        }
     }
 
     function query(){
