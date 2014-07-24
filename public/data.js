@@ -36,5 +36,7 @@ var customers = [
     {'nick': 'yesi9999', 'realName': '曹燕秋', 'mobile': '15026583923', 'state': '上海', 'city': '上海市',
         'district': '南汇区', 'address': '祝桥镇空港工业区金闻路29号', 'userId': 54520057},
     {'nick': 'dan806132461', 'realName': '胡丹', 'mobile': '15170935771', 'state': '江西省', 'city': '九江市',
-        'district': '浔阳区', 'address': '江西省九江市青年路九十六号江西财经职业学院会计一系会计十二班胡丹(332000)', 'userId': 54520057}
+        'district': '浔阳区', 'address': '江西省九江市青年路九十六号江西财经职业学院会计一系会计十二班胡丹(332000)', 'userId': 54520057},
+    {'nick': 'lookingclover', 'realName': '胡晓燕', 'mobile': '15215732057', 'state': '浙江省', 'city': '绍兴市',
+        'district': '越城区', 'address': '迪荡街道浙江省绍兴市越城区迪荡街道', 'userId': 54520057}
 ];
