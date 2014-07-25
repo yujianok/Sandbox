@@ -9,7 +9,8 @@ var config = {
         ]
     },
     mysql: {
-        host: 'jdbc:mysql://192.168.200.42/hermes',
+        host: '192.168.200.42',
+        database:'hermes',
         user: 'darcy',
         password: 'F2y_YbuAvV9R',
         connectionLimit: 10
