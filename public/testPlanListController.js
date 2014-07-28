@@ -74,9 +74,10 @@ sandboxApp.controller("testPlanListController",
 
     function query(){
         $scope.selectedTestAction = "";
-        $restClient.query(angular.merge({user: esIndex, entity: testPlanName}, $scope.queryTestAction), function (data) {
-            $scope.testActions = data;
-        });
+        $restClient.query(angular.merge({user: esIndex, entity: testPlanName, _pageNo: 1, _pageSize: 100},
+            $scope.queryTestAction), function (data) {
+                $scope.testActions = data;
+            });
     }
 
     function valSelectedOne() {
