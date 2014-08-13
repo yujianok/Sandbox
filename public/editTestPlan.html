@@ -87,7 +87,10 @@
                 </div>
                 <div class="span2">
                     <select data-ng-model="action.tid" class="form-control" style="width: 140px">
-                        <option data-ng-repeat="tid in tids" value="{{tid}}">{{tid}}</option>
+                        <option data-ng-repeat="tid in tids" value="{{tid}}"
+                            data-ng-selected="tid === action.tid">
+                            {{tid}}
+                        </option>
                     </select>
                 </div>
                 <div class="span1" align="right">
